@@ -2,7 +2,7 @@ package com.portfolio.repository;
 
 import org.springframework.data.jpa.repository.Query;
 
-import com.porfolio.domain.GenericEntity;
+import com.portfolio.domain.GenericEntity;
 
 
 public interface MultiLanguageRepository <E extends GenericEntity> {

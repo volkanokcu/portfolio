@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.porfolio.domain.impl.Language;
+import com.portfolio.domain.impl.Language;
 import com.portfolio.repository.LanguageRepository;
 import com.portfolio.service.LanguageService;
 

@@ -1,4 +1,4 @@
-package com.porfolio.domain;
+package com.portfolio.domain;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

@@ -1,6 +1,6 @@
 package com.portfolio.service;
 
-import com.porfolio.domain.impl.Language;
+import com.portfolio.domain.impl.Language;
 
 public interface LanguageService extends GenericService<Language> {
 

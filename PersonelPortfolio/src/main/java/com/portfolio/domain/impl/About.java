@@ -1,4 +1,4 @@
-package com.porfolio.domain.impl;
+package com.portfolio.domain.impl;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import com.porfolio.domain.AbstractEntity;
+import com.portfolio.domain.AbstractEntity;
 
 @Entity
 @Table(name="ABOUT")

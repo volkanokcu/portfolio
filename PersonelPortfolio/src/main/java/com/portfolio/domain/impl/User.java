@@ -1,4 +1,4 @@
-package com.porfolio.domain.impl;
+package com.portfolio.domain.impl;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -19,7 +19,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.porfolio.domain.AbstractEntity;
+import com.portfolio.domain.AbstractEntity;
 
 @Entity
 @Table(name="USER")

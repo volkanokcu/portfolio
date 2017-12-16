@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.porfolio.domain.impl.Language;
+import com.portfolio.domain.impl.Language;
 import com.portfolio.service.LanguageService;
 
 @RestController

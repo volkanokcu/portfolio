@@ -1,6 +1,6 @@
 package com.portfolio.security.login;
 
-import com.porfolio.domain.impl.User;
+import com.portfolio.domain.impl.User;
 
 public class LoginResponse {
     

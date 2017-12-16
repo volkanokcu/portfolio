@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.porfolio.domain.impl.About;
+import com.portfolio.domain.impl.About;
 import com.portfolio.dto.AboutDTO;
 import com.portfolio.dto.mapper.AboutDTOMapper;
 import com.portfolio.service.AboutService;

@@ -16,7 +16,7 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.porfolio.domain.impl.User;
+import com.portfolio.domain.impl.User;
 import com.portfolio.security.common.JwtUtil;
 
 @Component

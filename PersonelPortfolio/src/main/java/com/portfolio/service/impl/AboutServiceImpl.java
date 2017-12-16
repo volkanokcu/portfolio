@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.porfolio.domain.impl.About;
+import com.portfolio.domain.impl.About;
 import com.portfolio.repository.AboutRepository;
 import com.portfolio.service.AboutService;
 

@@ -5,9 +5,9 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Component;
 
-import com.porfolio.domain.impl.About;
-import com.porfolio.domain.impl.AboutTranslation;
-import com.porfolio.domain.impl.Language;
+import com.portfolio.domain.impl.About;
+import com.portfolio.domain.impl.AboutTranslation;
+import com.portfolio.domain.impl.Language;
 import com.portfolio.dto.AboutDTO;
 
 @Component

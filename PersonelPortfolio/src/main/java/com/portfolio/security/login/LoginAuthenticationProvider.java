@@ -11,7 +11,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
-import com.porfolio.domain.impl.User;
+
+import com.portfolio.domain.impl.User;
 import com.portfolio.service.UserService;
 
 @Component

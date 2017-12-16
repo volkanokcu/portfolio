@@ -1,6 +1,6 @@
 package com.portfolio.service;
 
-import com.porfolio.domain.impl.User;
+import com.portfolio.domain.impl.User;
 
 public interface UserService extends GenericService<User> {
 	

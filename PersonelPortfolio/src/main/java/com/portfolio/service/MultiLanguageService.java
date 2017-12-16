@@ -1,6 +1,6 @@
 package com.portfolio.service;
 
-import com.porfolio.domain.GenericEntity;
+import com.portfolio.domain.GenericEntity;
 
 public interface MultiLanguageService<E extends GenericEntity> {
 	

@@ -9,8 +9,8 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import com.porfolio.domain.impl.User;
-import com.porfolio.domain.impl.UserRole;
+import com.portfolio.domain.impl.User;
+import com.portfolio.domain.impl.UserRole;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.porfolio.domain.impl.User;
+import com.portfolio.domain.impl.User;
 import com.portfolio.repository.UserRepository;
 import com.portfolio.service.UserService;
 

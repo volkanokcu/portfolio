@@ -1,6 +1,6 @@
 package com.portfolio.service;
 
-import com.porfolio.domain.impl.Contact;
+import com.portfolio.domain.impl.Contact;
 
 public interface ContactService extends GenericService<Contact> {
 
