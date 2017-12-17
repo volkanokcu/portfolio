@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -26,7 +27,7 @@ public class UserREST {
 	@Autowired
 	UserService userService;
 	
-	@GetMapping({"/id"})
+	@GetMapping({"/id"} )
 	public ResponseEntity<User> get(@PathVariable Integer id) {
 		User user = userService.findById(id);
 		if (user != null) {
@@ -75,7 +76,7 @@ public class UserREST {
 	@GetMapping()
 	public ResponseEntity<List<User>> getAll() {
 		List<User> users = userService.findAll();
-		if (users.isEmpty()) {
+		if (users.isEmpty() || null == users) {
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		} else {
 			return new ResponseEntity<>(users, HttpStatus.OK);

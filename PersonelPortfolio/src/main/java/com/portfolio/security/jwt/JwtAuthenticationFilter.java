@@ -1,6 +1,7 @@
 package com.portfolio.security.jwt;
 
 import java.io.IOException;
+import java.util.Enumeration;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -28,7 +29,7 @@ public class JwtAuthenticationFilter extends AbstractAuthenticationProcessingFil
 			throws AuthenticationException, IOException, ServletException {
 
         String header = request.getHeader(AUTHENTICATION_HEADER_NAME);
-
+      
         if (header == null || !header.startsWith(HEADER_PREFIX)) {
             throw new RuntimeException("JWT Token is missing");
         }

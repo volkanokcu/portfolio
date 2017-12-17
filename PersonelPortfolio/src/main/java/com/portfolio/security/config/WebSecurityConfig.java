@@ -3,6 +3,7 @@ package com.portfolio.security.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -13,6 +14,8 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+import com.portfolio.CustomCorsFilter;
 import com.portfolio.constants.Constants;
 import com.portfolio.security.RestAuthenticationEntryPoint;
 import com.portfolio.security.jwt.JwtAuthenticationFilter;
@@ -67,15 +70,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 
     	 http
-         .csrf().disable() // CSRF'yi kapat.
+         .csrf().disable()
+         // CSRF'yi kapat.
          .exceptionHandling()
          .authenticationEntryPoint(this.authenticationEntryPoint)
+
          
          //Sesion tutma. Zaten her requestte Jwt token kontrolu yapılacak. Sesion tutmaya gerek yok.
          .and()
              .sessionManagement()
              .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-         
+
          //Bu eşleşmeleri role göre filtrele.
          .and()
          	.authorizeRequests()
@@ -83,7 +88,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
          	.hasRole(Constants.ROLE_ADMIN)
          
          .and()
+         	//Allow cors
+         	.addFilterBefore(new CustomCorsFilter(), UsernamePasswordAuthenticationFilter.class)
+         	//Filter login url
          	.addFilterBefore(buildLoginAuthenticationFilter(AUTHENTITATION_LOGIN_URL), UsernamePasswordAuthenticationFilter.class)
+         	//Filter admin urls
          	.addFilterBefore(buildJwtAuthenticationFilter(AUTHORIZED), UsernamePasswordAuthenticationFilter.class);
 
     }
