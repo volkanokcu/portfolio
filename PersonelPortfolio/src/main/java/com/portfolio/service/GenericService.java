@@ -13,6 +13,8 @@ public interface GenericService <E extends GenericEntity>{
 	public abstract void delete(E entity);
 
 	public abstract List<E> findAll();
+	
+	public abstract List<E> findAll(List<Integer> ids);
 
 	public abstract E findById(Integer id);
 

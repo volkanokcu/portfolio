@@ -17,19 +17,19 @@ public class Language extends AbstractEntity {
 	private static final long serialVersionUID = 1L;
 	
 	@Column(name="LANGUAGE", nullable=false, length=50, unique=true)
-	private String language;
+	private String name;
 
-	public String getLanguage() {
-		return language;
+	public String getName() {
+		return name;
 	}
 
-	public void setLanguage(String language) {
-		this.language = language;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	@Override
 	public String toString() {
-		return "Language [language=" + language + ", toString()=" + super.toString() + "]";
+		return "Language [language=" + name + ", toString()=" + super.toString() + "]";
 	}
 	
 }

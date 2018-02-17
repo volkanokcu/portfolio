@@ -17,6 +17,7 @@ import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.portfolio.domain.impl.User;
+import com.portfolio.endpoints.rest.model.LoginResponse;
 import com.portfolio.security.common.JwtUtil;
 
 @Component
@@ -39,9 +40,7 @@ public class LoginAwareAuthenticationSuccessHandler implements AuthenticationSuc
         String jwtToken = jwtUtil.generate(user);
         response.setStatus(HttpStatus.OK.value());
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);
-       	//Userin passwordunu göndermek istemiyoruz
-        user.setPassword(null);
-        mapper.writeValue(response.getWriter(), new LoginResponse(jwtToken, user, HttpStatus.OK.toString()));
+        mapper.writeValue(response.getWriter(), new LoginResponse(user.getUsername(), jwtToken, HttpStatus.OK.toString()));
 
         clearAuthenticationAttributes(request);
     }

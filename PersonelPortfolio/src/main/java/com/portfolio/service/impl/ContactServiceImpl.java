@@ -40,6 +40,12 @@ public class ContactServiceImpl implements ContactService {
 		return repository.findOne(id);
 	}
 
+	@Override
+	public List<Contact> findAll(List<Integer> ids) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 
 

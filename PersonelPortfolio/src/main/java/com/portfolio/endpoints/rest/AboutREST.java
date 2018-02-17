@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.portfolio.domain.impl.About;
 import com.portfolio.dto.AboutDTO;
 import com.portfolio.dto.mapper.AboutDTOMapper;
+import com.portfolio.endpoints.rest.model.CustomResponse;
 import com.portfolio.service.AboutService;
 
 @RestController
@@ -34,21 +35,31 @@ public class AboutREST {
 		}
 	}
 	
-	@PostMapping("/admin/about")
-	public ResponseEntity<Void> post(@RequestBody About entity) {
-		aboutService.save(entity);
-		return new ResponseEntity<>(HttpStatus.CREATED);
+	@GetMapping("/about/{id}")
+	public ResponseEntity<About> get(@PathVariable("id") Integer id) {
+		About about = aboutService.findById(id);
+		if (about != null) {
+			return new ResponseEntity<>(about, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
 	}
 	
-	@PutMapping("/admin/about/{id}")
-	public ResponseEntity<Void> put(@PathVariable("id") Integer id, @RequestBody About entity) {
-		About aboutTranslation = aboutService.findById(id);
+	@PostMapping("/admin/about")
+	public ResponseEntity<CustomResponse> post(@RequestBody About entity) {
+		aboutService.save(entity);
+		return new ResponseEntity<>(new CustomResponse(HttpStatus.CREATED.toString()), HttpStatus.CREATED);
+	}
+	
+	@PutMapping("/admin/about")
+	public ResponseEntity<CustomResponse> put(@RequestBody About entity) {
+		About aboutTranslation = aboutService.findById(entity.getId());
 		if (aboutTranslation == null) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 		else { 
 			aboutService.save(entity);
-			return new ResponseEntity<>(HttpStatus.OK);
+			return new ResponseEntity<>(new CustomResponse(HttpStatus.OK.toString()), HttpStatus.OK);
 		}
 	}
 	

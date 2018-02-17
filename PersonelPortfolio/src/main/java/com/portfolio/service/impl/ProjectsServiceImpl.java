@@ -41,5 +41,15 @@ public class ProjectsServiceImpl implements ProjectService {
 		return repository.findOne(id);
 	}
 
+	@Override
+	public List<Project> findAll(List<Integer> ids) {
+		return repository.findAll();
+	}
+
+	@Override
+	public Project findByIdAndLanguage(Integer id, String languageName) {
+		return repository.findByIdAndLanguageName(id, languageName);
+	}
+
 
 }

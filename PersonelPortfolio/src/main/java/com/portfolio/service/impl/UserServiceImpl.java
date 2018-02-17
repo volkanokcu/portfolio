@@ -18,19 +18,22 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void save(User entity) {
 		repository.save(entity);
-		
+	}
+	
+	@Override
+	public void save(List<User> entities) {
+		repository.save(entities);
 	}
 
 	@Override
 	public void update(User entity) {
-		// TODO Auto-generated method stub
+		repository.save(entity);
 		
 	}
 
 	@Override
 	public void delete(User entity) {
-		// TODO Auto-generated method stub
-		
+		repository.delete(entity);
 	}
 
 	@Override
@@ -40,8 +43,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User findById(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.findOne(id);
 	}
 
 	@Override
@@ -53,5 +55,11 @@ public class UserServiceImpl implements UserService {
 	public User findByUsernameAndPassword(String username, String password) {
 		return repository.findByUsernameAndPassword(username, password);
 	}
+
+	@Override
+	public List<User> findAll(List<Integer> ids) {
+		return repository.findAll(ids);
+	}
+
 
 }

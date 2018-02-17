@@ -3,22 +3,19 @@ package com.portfolio.domain.impl;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
-
 import javax.persistence.AttributeOverride;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
-
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.portfolio.domain.AbstractEntity;
 
 @Entity
@@ -29,7 +26,7 @@ public class User extends AbstractEntity implements UserDetails {
 	@Transient
 	private static final long serialVersionUID = 1L;
 
-	@Column(name="USERNAME", nullable=false, length=50)
+	@Column(name="USERNAME", nullable=false, length=50, unique=true)
 	private String username;
 	
 	@Column(name="PASSWORD", nullable=false, length=250)
@@ -47,7 +44,7 @@ public class User extends AbstractEntity implements UserDetails {
 	@Column(name="ACCOUNT_NON_LOCKED", nullable=false, length=50)
 	private boolean accountNonLocked = true;
 	
-	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(name="USER_ROLES", joinColumns = @JoinColumn(name="USER_ID",referencedColumnName="USER_ID"), 
 	inverseJoinColumns=@JoinColumn(name="ROLE_ID", referencedColumnName="ROLE_ID"))
 	private Set<UserRole> userRoles;
@@ -113,12 +110,13 @@ public class User extends AbstractEntity implements UserDetails {
 	public void setUserRoles(Set<UserRole> userRoles) {
 		this.userRoles = userRoles;
 	}
-
+	
+	@JsonIgnore
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		Collection<GrantedAuthority> grantedAuthorities = new HashSet<>();
 		for(UserRole role : getUserRoles()) {
-			grantedAuthorities.add(new SimpleGrantedAuthority(role.getUserRole()));
+			grantedAuthorities.add(new SimpleGrantedAuthority(role.getName()));
 		}
 		return grantedAuthorities;
 	}

@@ -19,7 +19,7 @@ public class AboutTranslation extends AbstractEntity {
 	@Transient
 	private static final long serialVersionUID = 1L;
 
-	@ManyToOne(cascade=CascadeType.PERSIST)
+	@ManyToOne(cascade=CascadeType.MERGE)
 	@JoinColumn(name="LANGUAGE_ID")
 	private Language language;
 	

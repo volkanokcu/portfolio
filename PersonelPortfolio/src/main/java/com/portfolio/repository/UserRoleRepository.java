@@ -8,6 +8,6 @@ import com.portfolio.domain.impl.UserRole;
 @Repository
 public interface UserRoleRepository extends JpaRepository<UserRole, Integer> {
 
-	public UserRole findByUserRole(String userRole);
+	public UserRole findByName(String name);
 	
 }

@@ -44,7 +44,7 @@ public class JwtUtil {
 			for (LinkedHashMap<?, ?> linkedHashMap : list) {
 				UserRole userRole = new UserRole();
 				userRole.setId((Integer) linkedHashMap.get("id"));
-				userRole.setUserRole((String) linkedHashMap.get("userRole"));
+				userRole.setName((String) linkedHashMap.get("name"));
 				roles.add(userRole);
 			}
 			user.setUserRoles(roles);

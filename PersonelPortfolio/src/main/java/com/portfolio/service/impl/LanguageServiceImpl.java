@@ -9,6 +9,7 @@ import com.portfolio.domain.impl.Language;
 import com.portfolio.repository.LanguageRepository;
 import com.portfolio.service.LanguageService;
 
+//Language Service
 @Service
 public class LanguageServiceImpl implements LanguageService {
 	
@@ -38,6 +39,12 @@ public class LanguageServiceImpl implements LanguageService {
 	@Override
 	public Language findById(Integer id) {
 		return repository.findOne(id);
+	}
+
+	@Override
+	public List<Language> findAll(List<Integer> ids) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

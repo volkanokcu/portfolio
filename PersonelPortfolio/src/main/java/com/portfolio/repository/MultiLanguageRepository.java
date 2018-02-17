@@ -7,8 +7,7 @@ import com.portfolio.domain.GenericEntity;
 
 public interface MultiLanguageRepository <E extends GenericEntity> {
 	
-	@Query("select e from #{#entityName} e join fetch e.translations t where e.id = ?1 and t.language.language = ?2 ")
-	E findByIdAndLanguage(Integer id, String language);
+	@Query("select e from #{#entityName} e join fetch e.translations t where e.id = ?1 and t.language.name = ?2 ")
+	E findByIdAndLanguageName(Integer id, String languageName);
 	
-	E findByIdAndTranslationsLanguageLanguage(Integer id, String language);
 }

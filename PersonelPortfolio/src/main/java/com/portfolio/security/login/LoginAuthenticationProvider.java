@@ -36,7 +36,7 @@ public class LoginAuthenticationProvider implements AuthenticationProvider {
 
         User user = userService.findByUsername(username);
         if (null == user) throw new UsernameNotFoundException("User not found: " + username);
-        
+        System.out.println("pass" + encoder.encode(password));
         if (!encoder.matches(password, user.getPassword())) {
             throw new BadCredentialsException("Authentication Failed. Username or Password not valid.");
         }

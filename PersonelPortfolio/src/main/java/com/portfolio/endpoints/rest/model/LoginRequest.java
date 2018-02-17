@@ -1,4 +1,4 @@
-package com.portfolio.security.login;
+package com.portfolio.endpoints.rest.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;

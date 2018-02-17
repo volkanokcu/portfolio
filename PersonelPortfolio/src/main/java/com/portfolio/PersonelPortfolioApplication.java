@@ -16,9 +16,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @SpringBootApplication
 @EnableConfigurationProperties
 public class PersonelPortfolioApplication {
-
 	public static void main(String[] args) {
-		
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		SpringApplication.run(PersonelPortfolioApplication.class, args);
 		
 	}

@@ -16,15 +16,15 @@ public class UserRole extends AbstractEntity {
 	@Transient
 	private static final long serialVersionUID = 1L;
 	
-	@Column(name="USER_ROLE", nullable=false, length=50)
-	private String userRole;
+	@Column(name="USER_ROLE", nullable=false, length=50, unique=true)
+	private String name;
 
-	public String getUserRole() {
-		return userRole;
+	public String getName() {
+		return name;
 	}
 
-	public void setUserRole(String userRole) {
-		this.userRole = userRole;
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 }

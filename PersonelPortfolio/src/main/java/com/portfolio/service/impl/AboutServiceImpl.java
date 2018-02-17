@@ -17,7 +17,7 @@ public class AboutServiceImpl implements AboutService {
 
 	@Override
 	public void save(About entity) {
-		repository.save(entity);
+		
 	}
 
 	@Override
@@ -27,7 +27,7 @@ public class AboutServiceImpl implements AboutService {
 
 	@Override
 	public void delete(About entity) {
-		repository.delete(entity);
+		
 	}
 
 	@Override
@@ -41,8 +41,14 @@ public class AboutServiceImpl implements AboutService {
 	}
 
 	@Override
-	public About findByIdAndLanguage(Integer id, String language) {
-		return repository.findByIdAndTranslationsLanguageLanguage(id, language);
+	public About findByIdAndLanguage(Integer id, String languageName) {
+		return repository.findByIdAndLanguageName(id, languageName);
+	}
+
+	@Override
+	public List<About> findAll(List<Integer> ids) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 
