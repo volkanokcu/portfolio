@@ -25,7 +25,7 @@ import com.portfolio.service.UserService;
 
 @Component
 public class AppStartup implements ApplicationListener<ApplicationReadyEvent>{
-	//
+	
 	@Value("${spring.jpa.hibernate.ddl-auto}")
 	private String hibernateDllAuto;
 	
